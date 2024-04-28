@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header con Menú de Navegación y Formulario de Contacto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    nav {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 50px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #595959;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #FEC940;
+      transition: background-color 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: #00B9D0;
+      color: #fff;
+    }
+    .formulario-contacto {
+      display: none;
+      margin-top: 20px;
+      width: 300px; /* Ajustar el ancho del formulario */
+      margin: 20px auto 0; /* Ajustar los márgenes */
+      margin-left: 90px; /* Desplazar el formulario hacia la derecha */
+    }
+    .formulario-contacto.visible {
+      display: block;
+    }
+    .formulario-contacto p {
+      font-weight: bold;
+    }
+    .formulario-contacto label {
+      display: block;
+      margin-bottom: 10px;
+      color: #595959; /* Color para el texto del label */
+    }
+    .formulario-contacto .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; /* Espacio entre los contenedores */
+    }
+    .formulario-contacto .input-container label {
+      width: 100px;
+    }
+    .formulario-contacto .input-container input[type="text"],
+    .formulario-contacto .input-container input[type="tel"] {
+      flex: 1;
+    }
+    .formulario-contacto textarea {
+      width: calc(100% - 122px); /* Ajustar el ancho del textarea */
+      height: 100px; /* Tamaño fijo del contenedor del mensaje */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none; /* Deshabilitar la capacidad de cambiar el tamaño */
+    }
+    .formulario-contacto input[type="submit"] {
+      background-color: #FEC940;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .formulario-contacto input[type="submit"]:hover {
+      background-color: #00B9D0;
+    }
+    footer {
+      background-color: #333;
+      color: #ffffff; /* Cambio de color de texto a blanco */
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="file:///D|/ILERNA ONLINE/ILERNA ONLINE.jpg" alt="Logo de la empresa" width="225">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#inicio" id="enlace-inicio">Inicio</a></li>
+      <li><a href="#cursos" id="enlace-cursos">Cursos</a></li>
+      <li><a href="#" id="mostrar-formulario">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="formulario-contacto" id="formulario-contacto">
+  <p><strong>Formulario de contacto</strong></p>
+  <form action="#" method="post">
+    <div class="input-container">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+    </div>
+
+    <div class="input-container">
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+    </div>
+
+    <div class="input-container">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono" required>
+    </div>
+
+    <div class="input-container">
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Introducir texto..." required></textarea>
+    </div>
+
+    <input type="submit" value="Enviar">
+  </form>
+</div>
+
+<footer>
+  <p>Bruno Arca López</p>
+  <p>Sistemas microinformáticos y redes</p>
+  <p>Smir</p>
+</footer>
+
+<script>
+  document.getElementById('mostrar-formulario').addEventListener('click', function(event) {
+    event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+
+    var formulario = document.getElementById('formulario-contacto');
+    formulario.classList.toggle('visible'); // Alternar la clase 'visible' para mostrar/ocultar el formulario
+  });
+
+  // Ocultar el formulario si se hace clic en los enlaces de "Inicio" o "Cursos"
+  document.getElementById('enlace-inicio').addEventListener('click', function(event) {
+    ocultarFormulario();
+  });
+
+  document.getElementById('enlace-cursos').addEventListener('click', function(event) {
+    ocultarFormulario();
+  });
+
+  function ocultarFormulario() {
+    var formulario = document.getElementById('formulario-contacto');
+    formulario.classList.remove('visible');
+  }
+</script>
+
+</body>
+</html>
+
+
